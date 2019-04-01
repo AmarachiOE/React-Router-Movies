@@ -11,7 +11,7 @@ export default class Movie extends Component {
 
   componentDidMount() {
     // change this line to grab the id passed on the URL
-    //const id = 1;
+    // const id = 1; changed to:
     const id = this.props.match.params.movieId;
     console.log(this.props.movie.id, this.props.match.params.movieId);
     // const id = this.props.movie.find(movie => {
