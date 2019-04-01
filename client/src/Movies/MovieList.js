@@ -56,3 +56,5 @@ function MovieDetails({ movie }) {
     </div>
   );
 }
+
+
