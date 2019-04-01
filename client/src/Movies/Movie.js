@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import MovieCard from "./MovieCard";
+
+
 export default class Movie extends Component {
   constructor(props) {
     super(props);
@@ -13,10 +16,7 @@ export default class Movie extends Component {
     // change this line to grab the id passed on the URL
     // const id = 1; changed to:
     const id = this.props.match.params.movieId;
-    console.log(this.props.movie.id, this.props.match.params.movieId);
-    // const id = this.props.movie.find(movie => {
-    //   return `${movie.id}` === this.props.match.params.movieId;
-    // });
+    console.log(this.props.match.params.movieId);
     this.fetchMovie(id);
   }
 
@@ -52,25 +52,31 @@ export default class Movie extends Component {
 
     const { title, director, metascore, stars } = this.state.movie;
     return (
-      <div className="save-wrapper">
-        <div className="movie-card">
-          <h2>{title}</h2>
-          <div className="movie-director">
-            Director: <em>{director}</em>
-          </div>
-          <div className="movie-metascore">
-            Metascore: <strong>{metascore}</strong>
-          </div>
-          <h3>Actors</h3>
+      // <div className="save-wrapper">
+      //   <div className="movie-card">
+      //     <h2>{title}</h2>
+      //     <div className="movie-director">
+      //       Director: <em>{director}</em>
+      //     </div>
+      //     <div className="movie-metascore">
+      //       Metascore: <strong>{metascore}</strong>
+      //     </div>
+      //     <h3>Actors</h3>
 
-          {stars.map(star => (
-            <div key={star} className="movie-star">
-              {star}
-            </div>
-          ))}
-        </div>
-        <div className="save-button">Save</div>
+      //     {stars.map(star => (
+      //       <div key={star} className="movie-star">
+      //         {star}
+      //       </div>
+      //     ))}
+      //   </div>
+      //   <div className="save-button">Save</div>
+      // </div>
+      <div>
+        <MovieCard movie={this.state.movie}/>
       </div>
+      
     );
   }
 }
+
+// replaced original JSX with <MovieCard/> for STRETCH

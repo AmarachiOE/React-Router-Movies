@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+import MovieCard from "./MovieCard";
+
 export default class MovieList extends Component {
   constructor(props) {
     super(props);
@@ -25,9 +27,11 @@ export default class MovieList extends Component {
     return (
       <div className="movie-list">
         {this.state.movies.map(movie => (
-          // link to each movie's id prop
+          // link to each movie's id prop dynamically
+          // STRETCH: replace MovieDetails with MovieCard component
           <Link to={`/movies/${movie.id}`}>
-            <MovieDetails key={movie.id} movie={movie} />
+            <MovieCard key={movie.id} movie={movie}/>
+            {/* <MovieDetails key={movie.id} movie={movie} /> */}
           </Link>
         ))}
       </div>
@@ -35,6 +39,7 @@ export default class MovieList extends Component {
   }
 }
 
+// NOT RENDERED -- STRETCH PROBLEM REPLACES THIS WITH MovieCard.js
 function MovieDetails({ movie }) {
   const { title, director, metascore, stars } = movie;
   return (
