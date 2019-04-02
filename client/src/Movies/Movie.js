@@ -36,8 +36,8 @@ export default class Movie extends Component {
 
   // Uncomment this code when you're ready for the stretch problems
 
-  componentWillReceiveProps(newProps){
-    if(this.props.match.params.movieId !== newProps.match.params.movieId){
+  componentWillReceiveProps(newProps) {
+    if (this.props.match.params.movieId !== newProps.match.params.movieId) {
       this.fetchMovie(newProps.match.params.movieId);
     }
   };
@@ -74,10 +74,10 @@ export default class Movie extends Component {
       //   <div className="save-button">Save</div>
       // </div>
       <div className="save-wrapper">
-        <MovieCard movie={this.state.movie}/>
+        <MovieCard movie={this.state.movie} />
         <div className="save-button" onClick={this.saveMovie}>Save</div>
       </div>
-      
+
     );
   }
 }

@@ -30,7 +30,7 @@ export default class MovieList extends Component {
           // link to each movie's id prop dynamically
           // STRETCH: replace MovieDetails with MovieCard component
           <Link to={`/movies/${movie.id}`}>
-            <MovieCard key={movie.id} movie={movie}/>
+            <MovieCard key={movie.id} movie={movie} />
             {/* <MovieDetails key={movie.id} movie={movie} /> */}
           </Link>
         ))}
