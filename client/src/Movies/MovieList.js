@@ -1,5 +1,8 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
+import MovieCard from "./MovieCard";
 
 export default class MovieList extends Component {
   constructor(props) {
@@ -11,12 +14,12 @@ export default class MovieList extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:5000/api/movies')
+      .get("http://localhost:5000/api/movies")
       .then(response => {
         this.setState(() => ({ movies: response.data }));
       })
       .catch(error => {
-        console.error('Server Error', error);
+        console.error("Server Error", error);
       });
   }
 
@@ -24,13 +27,19 @@ export default class MovieList extends Component {
     return (
       <div className="movie-list">
         {this.state.movies.map(movie => (
-          <MovieDetails key={movie.id} movie={movie} />
+          // link to each movie's id prop dynamically
+          // STRETCH: replace MovieDetails with MovieCard component
+          <Link to={`/movies/${movie.id}`}>
+            <MovieCard key={movie.id} movie={movie} />
+            {/* <MovieDetails key={movie.id} movie={movie} /> */}
+          </Link>
         ))}
       </div>
     );
   }
 }
 
+// NOT RENDERED -- STRETCH PROBLEM REPLACES THIS WITH MovieCard.js
 function MovieDetails({ movie }) {
   const { title, director, metascore, stars } = movie;
   return (
@@ -52,3 +61,5 @@ function MovieDetails({ movie }) {
     </div>
   );
 }
+
+
