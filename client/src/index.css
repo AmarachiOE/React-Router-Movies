@@ -11,6 +11,11 @@ body {
   padding: 0.5rem 0;
 }
 
+/* Get ride of link underline on Movie List page */
+.movie-list a {
+  text-decoration: none;
+}
+
 .movie-card {
   background-color: #fff;
   /* background-image: radial-gradient(circle, white, white, rgb(255, 255, 168)); */
@@ -28,10 +33,19 @@ body {
   border: 3px solid black;
 }
 
+.movie-card:hover {
+  transform: scale(.9);
+  background: rgb(70, 67, 67);
+  color: white;
+}
+
 .movie-card h2 {
   color: rgb(143, 19, 50);
 }
 
+.movie-card h2:hover {
+  color: white;
+}
 
 .movie-director {
   padding: 4px 0;
@@ -60,12 +74,17 @@ body {
 
 .saved-movie {
   margin: 0 10px;
-  color: black;
   padding: 5px 10px;
-  text-decoration: none;
 }
 
-.saved-active {
+/* Get ride of text underline on link */
+.saved-movie a {
+  text-decoration: none;
+  color: black;
+
+}
+
+.saved-movie a.saved-active {
   color: rgb(143, 19, 50);
   font-weight: bold;
   font-size: 1.2rem;
